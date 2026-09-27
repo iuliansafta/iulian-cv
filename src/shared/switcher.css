@@ -1,0 +1,106 @@
+.vx-switch {
+  position: fixed;
+  left: 50%;
+  bottom: 18px;
+  transform: translateX(-50%);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  padding: 5px;
+  border-radius: 999px;
+  background: rgba(18, 18, 20, 0.82);
+  backdrop-filter: blur(14px) saturate(1.4);
+  -webkit-backdrop-filter: blur(14px) saturate(1.4);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.35);
+  font: 500 12px/1 ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  color: #d6d6da;
+  transition: transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1), opacity 0.35s;
+}
+
+.vx-switch.is-hidden {
+  transform: translate(-50%, 140%);
+  opacity: 0;
+  pointer-events: none;
+}
+
+.vx-switch__label {
+  padding: 0 10px 0 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 10px;
+  color: #8b8b93;
+}
+
+.vx-switch__item {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 8px 12px;
+  border-radius: 999px;
+  color: inherit;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background 0.2s, color 0.2s;
+}
+
+.vx-switch__item b {
+  display: grid;
+  place-items: center;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  font-size: 10px;
+}
+
+.vx-switch__item:hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff;
+}
+
+.vx-switch__item.is-active {
+  background: #fff;
+  color: #0b0b0c;
+}
+
+.vx-switch__item.is-active b {
+  background: #0b0b0c;
+  color: #fff;
+}
+
+.vx-switch__hide {
+  width: 28px;
+  height: 28px;
+  margin-left: 2px;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  color: #8b8b93;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.vx-switch__hide:hover {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+@media (max-width: 720px) {
+  .vx-switch__item span,
+  .vx-switch__label {
+    display: none;
+  }
+}
+
+.app-loading {
+  min-height: 100vh;
+}
+
+.app-missing {
+  display: grid;
+  place-items: center;
+  font: 500 15px/1.4 ui-sans-serif, system-ui, sans-serif;
+  color: #777;
+}
