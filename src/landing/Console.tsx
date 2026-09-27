@@ -33,14 +33,11 @@ export default function Console() {
   const email = useEmail();
   const field = useRef<HTMLInputElement>(null);
 
-  // / jumps to the shell from anywhere; it is the advertised key because
-  // Brave binds Ctrl+K to its own search before the page ever sees it.
-  // ⌘K / Ctrl+K still work where the browser lets them through.
+  // / jumps to the shell from anywhere. No Ctrl+K: Brave binds it to its own
+  // search before the page ever sees it.
   useEffect(() => {
     const onKey = (e: globalThis.KeyboardEvent) => {
-      const k = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
-      const slash = e.key === "/" && !(e.target instanceof HTMLInputElement) && !(e.target instanceof HTMLTextAreaElement);
-      if (!k && !slash) return;
+      if (e.key !== "/" || e.target instanceof HTMLInputElement || e.target instanceof HTMLTextAreaElement) return;
       e.preventDefault();
       field.current?.scrollIntoView({ behavior: reduced ? "auto" : "smooth", block: "center" });
       field.current?.focus({ preventScroll: true });
