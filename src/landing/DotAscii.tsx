@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
-import { RED, fitCanvas } from "../../shared/DotField";
-import { usePortraitGrid } from "../../shared/hooks";
+import { RED, fitCanvas } from "../shared/DotField";
+import { usePortraitGrid } from "../shared/hooks";
 
 const RAMP = " .:-=+*#%@";
 const LENS = 96;

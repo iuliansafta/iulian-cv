@@ -123,17 +123,6 @@ export function useEmail() {
   return { address, reveal };
 }
 
-export function useCopy(timeout = 1600) {
-  const [copied, setCopied] = useState<string | null>(null);
-  const copy = (text: string, key = "default") => {
-    navigator.clipboard?.writeText(text).then(() => {
-      setCopied(key);
-      window.setTimeout(() => setCopied((c) => (c === key ? null : c)), timeout);
-    });
-  };
-  return { copied, copy };
-}
-
 // Loads an image and returns its luminance on a cols×rows grid (0..1), for
 // the ASCII and halftone portraits. Same-origin only, or the canvas taints.
 export function usePortraitGrid(src: string, cols: number, rows: number) {

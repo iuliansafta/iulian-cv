@@ -11,13 +11,11 @@ export const PROFILE = {
   name: "Iulian Safta",
   first: "Iulian",
   last: "Safta",
-  handle: "iuliansafta",
   role: "Senior Software & Infrastructure Engineer",
   location: "Thonon-les-Bains, France",
   coords: "46.37°N 06.48°E",
   timeZone: "Europe/Paris",
   years: YEARS,
-  tagline: "I love turning complex problems into simple, scalable solutions.",
   summary:
     `Senior software and infrastructure engineer with ${YEARS} years of building backend systems, distributed infrastructure and developer platforms. I work across the application/infrastructure boundary — from Go and Rust services and blockchain runtimes to Kubernetes, networking, observability and automation.`,
   focus: [
@@ -236,7 +234,6 @@ export const PROJECTS: Project[] = [
 ];
 
 export const AI = {
-  kicker: "Agent-native engineering",
   body:
     "Agents sit in my toolchain next to the compiler and the debugger. I use them to build and ship faster — OpenCode and Pi as harnesses, Claude now and then — and I review every line before it ships. Speed is the agent's job; keeping slop out of the codebase is mine.",
   // From Iulian directly (2026-09-27): OpenCode + Pi as harnesses, Claude sometimes.
@@ -263,12 +260,10 @@ export const AI_SESSION: { k: "run" | "ok" | "no"; who: string; what: string; ms
   { k: "ok", who: "main", what: "ship", msg: "merged", step: 5 },
 ];
 
-// Candidate one-liners for the AI section; each variant uses a different one.
 export const AI_LINES = {
-  terminal: "Agents write the first draft. I own what ships.",
-  orbital: "Human in the loop. Agents on the keys.",
-  // Two sentences: C and D split them onto two lines.
-  signal: "Fast with agents. Strict on review.",
+  // Two sentences, split onto two lines of the dot-matrix headline.
+  headline: "Fast with agents. Strict on review.",
+  sub: "Agents write the first draft. I own what ships.",
 };
 
 export const CODE_LANGS = ["Go", "Rust", "Python", "TypeScript", "PHP", "Solidity"];

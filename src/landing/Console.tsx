@@ -4,17 +4,17 @@ import {
 import {
   AI, AI_LINES, AI_SESSION, CAREER_START, CODE_LANGS, JOBS, LANGUAGES, LINKS, PROFILE, PROJECTS, STACK, STATS,
   type Job,
-} from "../../shared/content";
-import { DotField } from "../../shared/DotField";
+} from "../shared/content";
+import { DotField } from "../shared/DotField";
 import {
   useClock, useEmail, useReducedMotion, useReveal, useScramble, useSeen, useTypewriter, useUptime,
-} from "../../shared/hooks";
-import { durationLabel, rangeLabel, yearValue } from "../../shared/time";
+} from "../shared/hooks";
+import { durationLabel, rangeLabel, yearValue } from "../shared/time";
 import { DotAscii } from "./DotAscii";
 import "./console.css";
 
-// A (terminal) × C (signal): the shell, git log and stack.toml of A, set in
-// C's dot-matrix type on pure black, with C's palette folded into the shell.
+// The shell, git log and stack.toml of a terminal, set in dot-matrix type on
+// pure black, with a command palette folded into the shell.
 
 const WINDOWS = [
   { id: "top", name: "whoami" },
@@ -32,10 +32,6 @@ export default function Console() {
   const root = useReveal<HTMLDivElement>();
   const email = useEmail();
   const field = useRef<HTMLInputElement>(null);
-
-  useEffect(() => {
-    document.title = "iulian@cloud — Iulian Safta";
-  }, []);
 
   // ⌘K, Ctrl+K or / jumps to the shell from anywhere.
   useEffect(() => {
@@ -278,7 +274,7 @@ function Shell({ reduced, email, field }: { reduced: boolean; email: Email; fiel
       case "about":
         return out(PROFILE.summary);
       case "agents":
-        return out(<b>{AI_LINES.signal}</b>, AI.body);
+        return out(<b>{AI_LINES.headline}</b>, AI.body);
       case "vora":
       case "probe": {
         const p = PROJECTS.find((x) => x.id === head)!;
@@ -460,7 +456,7 @@ function Head({ cmd, n, reduced }: { cmd: string; n: string; reduced: boolean })
 }
 
 function Agents({ reduced }: { reduced: boolean }) {
-  const [a, b] = AI_LINES.signal.split(". ");
+  const [a, b] = AI_LINES.headline.split(". ");
   return (
     <section className="cn-sec cn-wrap" id="agents">
       <Head n="01" cmd="cat ~/.config/agents.md" reduced={reduced} />
@@ -470,7 +466,7 @@ function Agents({ reduced }: { reduced: boolean }) {
       </h2>
       <div className="cn-agents">
         <div data-reveal>
-          <p className="cn-sub">{AI_LINES.terminal}</p>
+          <p className="cn-sub">{AI_LINES.sub}</p>
           <p className="cn-body">{AI.body}</p>
           <ul className="cn-tools">
             {AI.tools.map((t) => (
