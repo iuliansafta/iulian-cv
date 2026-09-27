@@ -15,6 +15,8 @@ export const PROFILE = {
   location: "Thonon-les-Bains, France",
   coords: "46.37°N 06.48°E",
   timeZone: "Europe/Paris",
+  // From Iulian (2026-09-27): the machine this site was built on.
+  os: "Omarchy — Arch Linux + Hyprland",
   years: YEARS,
   summary:
     `Senior software and infrastructure engineer with ${YEARS} years of building backend systems, distributed infrastructure and developer platforms. I work across the application/infrastructure boundary — from Go and Rust services and blockchain runtimes to Kubernetes, networking, observability and automation.`,

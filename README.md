@@ -5,9 +5,10 @@ Vite + React, plain CSS, no UI framework, self-hosted fonts, no third-party
 requests. Dark only.
 
 The design is **Console**: a terminal in a dot-matrix skin. A working shell
-with a command palette folded in (suggestions as you type, `⌘K` or `/` from
-anywhere), a halftone portrait with an ASCII loupe, and the career as a trace
-you can open like a `git log`.
+with a command palette folded in (suggestions as you type, `/` from anywhere;
+`⌘K`/`Ctrl+K` too, except in Brave, which keeps Ctrl+K for its own search), a
+halftone portrait with an ASCII loupe, and the career as a trace you can open
+like a `git log`.
 
 The other explored directions (Terminal, Orbital, Signal) live on the
 `design/explorations` branch.

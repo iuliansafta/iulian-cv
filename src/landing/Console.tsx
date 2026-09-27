@@ -33,7 +33,9 @@ export default function Console() {
   const email = useEmail();
   const field = useRef<HTMLInputElement>(null);
 
-  // ⌘K, Ctrl+K or / jumps to the shell from anywhere.
+  // / jumps to the shell from anywhere; it is the advertised key because
+  // Brave binds Ctrl+K to its own search before the page ever sees it.
+  // ⌘K / Ctrl+K still work where the browser lets them through.
   useEffect(() => {
     const onKey = (e: globalThis.KeyboardEvent) => {
       const k = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
@@ -42,6 +44,26 @@ export default function Console() {
       e.preventDefault();
       field.current?.scrollIntoView({ behavior: reduced ? "auto" : "smooth", block: "center" });
       field.current?.focus({ preventScroll: true });
+      // Flash the shell so the jump is visible even when it was on screen.
+      // An attribute, not a class: the node is [data-reveal] (see AGENTS.md).
+      const shell = field.current?.closest<HTMLElement>(".cn-shell");
+      if (!shell || reduced) return;
+      const flash = () => {
+        shell.removeAttribute("data-summoned");
+        void shell.offsetWidth;
+        shell.setAttribute("data-summoned", "");
+      };
+      const r = shell.getBoundingClientRect();
+      if (r.top >= 0 && r.bottom <= window.innerHeight) return flash();
+      // Off screen: flash once the smooth scroll lands, not while it runs.
+      let done = false;
+      const once = () => {
+        if (done) return;
+        done = true;
+        flash();
+      };
+      window.addEventListener("scrollend", once, { once: true });
+      window.setTimeout(once, 900);
     };
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
@@ -61,9 +83,11 @@ export default function Console() {
       </main>
       <footer className="cn-foot cn-wrap">
         <span>EOF</span>
-        <span>© {new Date().getFullYear()} {PROFILE.name}</span>
         <span>
-          <kbd>⌘K</kbd> or <kbd>/</kbd> opens the shell
+          © {new Date().getFullYear()} {PROFILE.name} · built on {PROFILE.os}
+        </span>
+        <span>
+          <kbd>/</kbd> opens the shell
         </span>
       </footer>
     </div>
@@ -192,6 +216,7 @@ const CMDS = [
   { name: "stack", desc: "languages and tools" },
   { name: "locale", desc: "spoken languages" },
   { name: "uptime", desc: "time in production" },
+  { name: "uname -a", desc: "the machine behind this site" },
   { name: "contact", desc: "decode the e-mail address" },
   { name: "github", desc: "open GitHub ↗" },
   { name: "linkedin", desc: "open LinkedIn ↗" },
@@ -207,7 +232,7 @@ const BOOT: Line[] = [
   { kind: "ok", text: "Started go.service rust.service" },
   { kind: "ok", text: "Started opencode.service pi.service" },
   { kind: "ok", text: "Listening on https://iulian.cloud" },
-  { kind: "dim", text: "Start typing — suggestions appear as you go. ⌘K or / brings you back here." },
+  { kind: "dim", text: "Start typing — suggestions appear as you go. Press / anywhere to come back here." },
 ];
 
 function Shell({ reduced, email, field }: { reduced: boolean; email: Email; field: RefObject<HTMLInputElement> }) {
@@ -301,6 +326,8 @@ function Shell({ reduced, email, field }: { reduced: boolean; email: Email; fiel
         return out(`code: ${CODE_LANGS.join(" · ")}`, ...STACK.slice(0, 4).map((g) => `${g.group.toLowerCase()}: ${g.items.slice(0, 6).join(", ")}`));
       case "locale":
         return out(...LANGUAGES.map((l) => `${l.locale}.UTF-8  ${l.name} — ${l.level}`));
+      case "uname":
+        return out(`Linux · ${PROFILE.os} — where this site was built`);
       case "uptime":
         return out(`up ${uptime}`);
       case "contact":
@@ -379,7 +406,7 @@ function Shell({ reduced, email, field }: { reduced: boolean; email: Email; fiel
           <i className="cn-rec" aria-hidden="true" /> iulian@cloud — zsh
         </span>
         <span>
-          <kbd>⌘K</kbd>
+          <kbd>/</kbd>
         </span>
       </header>
       <div className="cn-shell__body" ref={body} onClick={() => field.current?.focus()}>

@@ -324,6 +324,18 @@
   box-shadow: 0 40px 100px -50px rgb(0 0 0), 0 0 80px -50px rgb(var(--red-rgb) / 0.5);
 }
 
+.cn-shell[data-summoned] {
+  animation: cn-summon 1s var(--ease);
+}
+
+@keyframes cn-summon {
+  0%,
+  35% {
+    border-color: var(--red);
+    box-shadow: 0 0 0 1px var(--red), 0 0 70px -10px rgb(var(--red-rgb) / 0.8);
+  }
+}
+
 .cn-shell__head {
   display: flex;
   justify-content: space-between;
