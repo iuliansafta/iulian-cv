@@ -59,7 +59,8 @@ export const JOBS: Job[] = [
     id: "usbc",
     company: "USBC",
     role: "SRE / Core Blockchain Developer",
-    start: "2025-01",
+    // USBC from Jan 2026; Olyn ended Dec 2025: from Iulian (2026-10-01).
+    start: "2026-01",
     end: null,
     place: "Remote",
     url: "https://usbc.xyz/",
