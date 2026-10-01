@@ -66,13 +66,19 @@ export const JOBS: Job[] = [
     url: "https://usbc.xyz/",
     summary: "Core blockchain infrastructure on a customised Solana/Agave runtime.",
     highlights: [
-      "Built and deployed a customised Solana/Agave runtime and operated the core blockchain infrastructure across Devnet, Testnet and Mainnet.",
-      "Designed Ansible automation for validator, RPC and supporting-node provisioning, configuration and repeatable network deployment.",
+      "Built and deployed a customised Solana/Agave runtime and operated the core blockchain infrastructure on hosted bare-metal machines across Devnet, Testnet and Mainnet.",
+      // Terraform Cloud for the cloud infrastructure: from Iulian (2026-09-30).
+      "Designed Ansible automation for validator, RPC and supporting-node provisioning, configuration and repeatable network deployment, with the cloud infrastructure deployed through Terraform Cloud.",
       "Developed Geyser-based indexers that consume blockchain events, decode on-chain data and persist transactions and events to PostgreSQL.",
       "Built a high-performance RPC gateway on Cloudflare's Pingora, with geo-distributed RPC load balancing, health checks and failover.",
-      "Owned reliability end to end: deployment automation, traffic routing, node connectivity, RPC availability and production troubleshooting.",
+      // On call, the alerting pipeline and the investigator agent: from Iulian (2026-09-28).
+      "Owned reliability end to end, on call for production: deployment automation, traffic routing, node connectivity, RPC availability and production troubleshooting.",
+      "Built the alerting and on-call pipeline: Alertmanager routing into Datadog Teams and On-Call, with alerts in Slack.",
+      "Built an investigator agent, similar to Vora Probe, that handles part of each infrastructure investigation and tells the team what is happening on the network and how to fix it.",
+      // Bare metal and the log streaming (in progress, part of the agent): from Iulian (2026-09-28).
+      "Building log streaming from the bare-metal nodes into an in-house Loki on AWS, over TLS through an ALB endpoint, so the agent reads Loki logs and Prometheus metrics through Grafana MCP.",
     ],
-    stack: ["Rust", "Solana / Agave", "Pingora", "Ansible", "PostgreSQL", "Cloudflare"],
+    stack: ["Rust", "Solana / Agave", "Pingora", "Ansible", "bare metal", "Terraform", "PostgreSQL", "Cloudflare", "Prometheus", "Loki", "Grafana", "Alertmanager", "Datadog", "AWS"],
   },
   {
     id: "olyn",
@@ -84,13 +90,16 @@ export const JOBS: Job[] = [
     url: "https://olyn.com/",
     summary: "From a Python monolith to Go microservices on Kubernetes, for high-volume payments.",
     highlights: [
-      "Migrated a legacy monolith to AWS microservices on Kubernetes and Istio, shipped through ArgoCD GitOps with zero-downtime deployments.",
+      // Terraform bootstrap and RabbitMQ / SNS/SQS: from Iulian (2026-09-30).
+      "Migrated a legacy monolith to AWS microservices on Kubernetes and Istio, bootstrapped the AWS infrastructure with Terraform and shipped through ArgoCD GitOps with zero-downtime deployments.",
       "Led the move from Python/Flask to Go and from MongoDB to PostgreSQL, over REST (Echo) and gRPC — response times down 40%.",
-      "Built event-driven orchestration with Go workers, AWS Lambda and message queues for high-volume payment processing, integrating Checkout.com and Shift4 in a PCI-compliant environment.",
+      "Built event-driven orchestration with Go workers, AWS Lambda and message queues (RabbitMQ, AWS SNS/SQS) for high-volume payment processing, integrating Checkout.com and Shift4 in a PCI-compliant environment.",
       "Cut infrastructure costs by 30–40% with Karpenter autoscaling, spot/on-demand workload balancing and observability-driven scaling.",
-      "Deployed private Hyperledger Besu nodes on Kubernetes and ran observability on Prometheus, Grafana and Datadog.",
+      "Deployed private Hyperledger Besu nodes on Kubernetes.",
+      // On call and the alerting pipeline: from Iulian (2026-09-28).
+      "Ran observability on Prometheus, Grafana and Datadog, built the alerting and on-call pipeline (Alertmanager, Datadog Teams and On-Call, Slack) and was on call for production.",
     ],
-    stack: ["Go", "Kubernetes", "Istio", "ArgoCD", "AWS", "PostgreSQL", "gRPC", "Karpenter", "Datadog"],
+    stack: ["Go", "Kubernetes", "Istio", "ArgoCD", "AWS", "Terraform", "PostgreSQL", "RabbitMQ", "gRPC", "Karpenter", "Datadog"],
   },
   {
     id: "eaudeweb",
@@ -272,11 +281,11 @@ export const AI_LINES = {
 export const CODE_LANGS = ["Go", "Rust", "Python", "TypeScript", "PHP", "Solidity"];
 
 export const STACK: { group: string; items: string[] }[] = [
-  { group: "Systems & Backend", items: ["Go", "Rust", "Python", "TypeScript", "Node.js", "gRPC", "REST", "event-driven systems"] },
-  { group: "Cloud & Platform", items: ["AWS", "Kubernetes", "Istio", "ArgoCD", "Docker", "Terraform", "Ansible", "Karpenter", "GitHub Actions", "GitLab CI/CD"] },
+  { group: "Systems & Backend", items: ["Go", "Rust", "Python", "TypeScript", "Node.js", "gRPC", "REST", "event-driven systems", "RabbitMQ", "AWS SNS/SQS"] },
+  { group: "Cloud & Platform", items: ["AWS", "bare metal", "Kubernetes", "Istio", "ArgoCD", "Docker", "Terraform", "Ansible", "Karpenter", "GitHub Actions", "GitLab CI/CD"] },
   { group: "Distributed Systems", items: ["Solana / Agave", "Hyperledger Besu", "RPC infrastructure", "Pingora", "load balancing", "service mesh"] },
-  { group: "Observability & Data", items: ["Prometheus", "Grafana", "Datadog", "PostgreSQL", "MongoDB", "MySQL", "Redis", "Elasticsearch"] },
-  { group: "AI / Agent Tooling", items: ["OpenCode", "Pi", "Claude", "MCP", "infrastructure investigation"] },
+  { group: "Observability & Data", items: ["Prometheus", "Loki", "Grafana", "Datadog", "Alertmanager", "Datadog On-Call", "OpenTelemetry", "PostgreSQL", "MongoDB", "MySQL", "Redis", "Elasticsearch"] },
+  { group: "AI / Agent Tooling", items: ["OpenCode", "Pi", "Claude", "MCP", "investigator agents"] },
   { group: "Also", items: ["React", "React Native", "Django", "Flask", "Solidity", "Laravel", "Symfony"] },
 ];
 
