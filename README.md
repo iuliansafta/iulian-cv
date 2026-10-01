@@ -22,6 +22,33 @@ yarn build      # static site in build/
 
 Deploys on Vercel as a static Vite build; `vercel.json` points it at `build/`.
 
+## CV
+
+```bash
+yarn cv         # cv/out/Iulian_Safta_CV{,_SRE,_Blockchain,_Platform}.pdf (needs chromium on PATH)
+```
+
+The PDFs are built from the same `content.ts` as the site, so they can't
+drift. The SRE, Blockchain and Platform variants pick and reorder the same facts
+(`VARIANTS` in `cv/build.ts`). The phone number comes from `cv/private.json` (`{ "phone": "…" }`),
+git-ignored like `cv/out/`.
+
+Cover letters go in `cv/letters/<company>.md` (git-ignored) and build with the
+CVs, one page each, under the header of the CV variant they name:
+
+```text
+cv: platform
+file: Iulian_Safta_Cover_Letter_Company.pdf
+to: Company | Team
+subject: Application — Role
+---
+Dear …,
+
+Paragraphs separated by blank lines. The signature is added.
+
+Kind regards,
+```
+
 ## Layout
 
 | Path | What |
@@ -30,3 +57,4 @@ Deploys on Vercel as a static Vite build; `vercel.json` points it at `build/`.
 | `src/shared/content.ts` | every fact on the page — keep it traceable to the CVs and the vora repos |
 | `src/shared/` | hooks, date helpers, fonts, the dot-field canvas |
 | `public/` | favicon, portrait |
+| `cv/` | the PDF CV: `build.ts` (HTML → Chromium → PDF), `cv.css`, static fonts |

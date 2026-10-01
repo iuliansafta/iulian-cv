@@ -4,3 +4,9 @@ build/
 # CVs carry a phone number and a personal address; keep them out of the public repo.
 *.pdf
 Iulian_Safta_CVpdf
+
+# The generated CV and its phone number.
+cv/out/
+cv/private.json
+# Cover letters name the companies being applied to.
+cv/letters/

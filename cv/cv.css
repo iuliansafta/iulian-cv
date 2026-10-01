@@ -1,0 +1,347 @@
+/* The PDF CV: iulian.cloud's type and signal red, on paper.
+   One column on purpose, so screeners read it in order. */
+
+/* Static instances (OFL, via Fontsource): Chromium embeds variable fonts as
+   Type 3, which some CV parsers cannot read. */
+@font-face {
+  font-family: "Plex Sans";
+  src: url("./fonts/ibm-plex-sans-latin-400-normal.woff2") format("woff2");
+  font-weight: 400;
+}
+@font-face {
+  font-family: "Plex Sans";
+  src: url("./fonts/ibm-plex-sans-latin-500-normal.woff2") format("woff2");
+  font-weight: 500;
+}
+@font-face {
+  font-family: "Plex Sans";
+  src: url("./fonts/ibm-plex-sans-latin-600-normal.woff2") format("woff2");
+  font-weight: 600;
+}
+@font-face {
+  font-family: "JetBrains Mono";
+  src: url("./fonts/jetbrains-mono-latin-400-normal.woff2") format("woff2");
+  font-weight: 400;
+}
+@font-face {
+  font-family: "JetBrains Mono";
+  src: url("./fonts/jetbrains-mono-latin-500-normal.woff2") format("woff2");
+  font-weight: 500;
+}
+@font-face {
+  font-family: "JetBrains Mono";
+  src: url("./fonts/jetbrains-mono-latin-600-normal.woff2") format("woff2");
+  font-weight: 600;
+}
+@font-face {
+  font-family: "Doto";
+  src: url("./fonts/doto-latin-800-normal.woff2") format("woff2");
+  font-weight: 800;
+}
+
+:root {
+  --paper: #fff;
+  --ink: #131312;
+  --ink-2: #3d3c39;
+  --muted: #6f6d67;
+  --line: #e2e0da;
+  /* The site's #ff4d2e for marks; a darker shade where it has to be read. */
+  --red: #ff4d2e;
+  --red-ink: #c8361a;
+  --sans: "Plex Sans", system-ui, sans-serif;
+  --mono: "JetBrains Mono", ui-monospace, monospace;
+  --dot: "Doto", var(--mono);
+}
+
+@page {
+  size: A4;
+  margin: 13mm 15mm 14mm;
+  @bottom-right {
+    content: "Iulian Safta · " counter(page) " / " counter(pages);
+    font: 6.8pt "JetBrains Mono", monospace;
+    color: #6f6d67;
+  }
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font: 8.8pt/1.4 var(--sans);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* ── Header ─────────────────────────────────────────────── */
+
+.top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 8mm;
+  padding-bottom: 4.5mm;
+  border-bottom: 1.4pt solid var(--ink);
+}
+
+h1 {
+  font: 800 31pt/0.95 var(--dot);
+  letter-spacing: 0.01em;
+  margin-left: -0.5mm;
+}
+
+.title {
+  margin-top: 2.6mm;
+  font-size: 12.5pt;
+  font-weight: 600;
+  letter-spacing: -0.005em;
+}
+
+.headline {
+  margin-top: 0.8mm;
+  font: 500 8.6pt var(--mono);
+  color: var(--red-ink);
+}
+
+.contacts {
+  margin-top: 2.6mm;
+  font: 7.4pt/1.6 var(--mono);
+  color: var(--ink-2);
+}
+
+.contacts + .contacts {
+  margin-top: 0;
+}
+
+.sep {
+  color: var(--red);
+}
+
+.portrait {
+  width: 27mm;
+  height: 27mm;
+  flex: none;
+  object-fit: cover;
+  border-radius: 1.5mm;
+  filter: grayscale(1);
+}
+
+/* ── Sections ───────────────────────────────────────────── */
+
+section {
+  margin-top: 4.4mm;
+}
+
+h2 {
+  display: flex;
+  align-items: center;
+  gap: 2.4mm;
+  margin-bottom: 2.4mm;
+  font: 600 7.4pt var(--mono);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--red-ink);
+  break-after: avoid;
+}
+
+h2::before {
+  content: "";
+  width: 1.6mm;
+  height: 1.6mm;
+  background: var(--red);
+}
+
+h2::after {
+  content: "";
+  flex: 1;
+  height: 0.5pt;
+  background: var(--line);
+}
+
+.keep {
+  break-inside: avoid;
+}
+
+.profile {
+  font-size: 9.4pt;
+  line-height: 1.45;
+  color: var(--ink);
+}
+
+.nowrap {
+  white-space: nowrap;
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  margin-top: 3.2mm;
+  list-style: none;
+  border-top: 0.5pt solid var(--line);
+  border-bottom: 0.5pt solid var(--line);
+}
+
+.stats li {
+  padding: 2mm 3mm 2mm 0;
+  font: 6.8pt/1.3 var(--mono);
+  color: var(--muted);
+}
+
+.stats li + li {
+  padding-left: 3mm;
+  border-left: 0.5pt solid var(--line);
+}
+
+.stats b {
+  display: block;
+  margin-bottom: 0.6mm;
+  font: 800 18pt/1 var(--dot);
+  color: var(--red-ink);
+}
+
+/* ── Entries (jobs and projects) ────────────────────────── */
+
+.entry {
+  break-inside: avoid;
+}
+
+.entry + .entry {
+  margin-top: 3mm;
+}
+
+.entry header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 4mm;
+}
+
+h3 {
+  font-size: 10pt;
+  font-weight: 600;
+}
+
+.role {
+  margin-left: 1.2mm;
+  font-weight: 400;
+  color: var(--ink-2);
+}
+
+.role::before {
+  content: "| ";
+  color: var(--red);
+}
+
+.when {
+  flex: none;
+  font: 7.4pt var(--mono);
+  color: var(--ink-2);
+}
+
+.where {
+  margin-top: 0.2mm;
+  font: 7.2pt var(--mono);
+  color: var(--muted);
+}
+
+.pitch {
+  margin-top: 1mm;
+  color: var(--ink);
+}
+
+.entry ul {
+  margin-top: 1.1mm;
+  list-style: none;
+}
+
+.entry li {
+  position: relative;
+  padding-left: 3.4mm;
+  color: var(--ink);
+}
+
+.entry li + li {
+  margin-top: 0.5mm;
+}
+
+.entry li::before {
+  content: "";
+  position: absolute;
+  left: 0.4mm;
+  top: 0.62em;
+  width: 1.4mm;
+  height: 0.8pt;
+  background: var(--red);
+}
+
+.stack {
+  margin-top: 1.1mm;
+  font: 6.9pt var(--mono);
+  color: var(--muted);
+}
+
+/* ── Stack and languages ────────────────────────────────── */
+
+.skills {
+  display: grid;
+  grid-template-columns: 38mm 1fr;
+  row-gap: 1mm;
+}
+
+.skills dt {
+  font: 600 7.2pt/1.75 var(--mono);
+  color: var(--ink-2);
+}
+
+.skills dd {
+  color: var(--ink);
+}
+
+.level {
+  color: var(--muted);
+}
+
+/* ── Cover letter ───────────────────────────────────────── */
+
+.letter {
+  margin-top: 9mm;
+  font-size: 10pt;
+  line-height: 1.55;
+}
+
+.letter-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  font: 7.8pt/1.6 var(--mono);
+  color: var(--ink-2);
+}
+
+.subject {
+  margin: 8mm 0 6mm;
+  font: 600 8pt var(--mono);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--red-ink);
+}
+
+.letter > p + p {
+  margin-top: 3.4mm;
+}
+
+.letter .signature {
+  margin-top: 1.5mm;
+  font-weight: 600;
+}
