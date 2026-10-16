@@ -19,7 +19,7 @@ export const PROFILE = {
   os: "Omarchy, Arch Linux with Hyprland",
   years: YEARS,
   summary:
-    `Senior software and infrastructure engineer with ${YEARS} years of building backend systems, distributed infrastructure and developer platforms. I write Go and Rust services and blockchain runtimes, and I run the Kubernetes, networking, observability and automation under them.`,
+    `I've spent ${YEARS} years building backend systems, distributed infrastructure and developer platforms. I write Go and Rust services and blockchain runtimes, and I run the Kubernetes, networking, observability and automation under them.`,
   focus: [
     "Distributed systems",
     "Platform engineering",
@@ -67,17 +67,17 @@ export const JOBS: Job[] = [
     // Vast Bank: from Iulian (2026-10-16); wording follows usbc.xyz/i/about.
     summary: "Core blockchain infrastructure on a customised Solana/Agave runtime, for a bank-backed digital dollar held as tokenized deposits at Vast Bank, N.A.",
     highlights: [
-      "Built and deployed a customised Solana/Agave runtime and operated the core blockchain infrastructure on hosted bare-metal machines across Devnet, Testnet and Mainnet. The runtime is the ledger for USBC tokenized deposits at Vast Bank, N.A.",
+      "Built and deployed a customised Solana/Agave runtime, the ledger for USBC tokenized deposits at Vast Bank, N.A. Operated the core blockchain infrastructure on hosted bare-metal machines across Devnet, Testnet and Mainnet.",
       // Terraform Cloud for the cloud infrastructure: from Iulian (2026-09-30).
-      "Designed the Ansible automation that provisions and configures validator, RPC and supporting nodes and makes network deployments repeatable. Deployed the cloud infrastructure through Terraform Cloud.",
-      "Developed Geyser-based indexers that consume blockchain events, decode on-chain data and persist transactions and events to PostgreSQL.",
+      "Designed the Ansible automation that provisions and configures validator, RPC and supporting nodes, and makes network deployments repeatable. Deployed the cloud infrastructure with Terraform Cloud.",
+      "Developed Geyser indexers that read blockchain events, decode on-chain data and write transactions and events to PostgreSQL.",
       "Built an RPC gateway on Cloudflare's Pingora with geo-distributed load balancing, health checks and failover.",
       // On call, the alerting pipeline and the investigator agent: from Iulian (2026-09-28).
-      "Owned production reliability and was on call for it: deployment automation, traffic routing, node connectivity, RPC availability and troubleshooting.",
-      "Built the alerting and on-call pipeline, with Alertmanager routing into Datadog Teams and On-Call and alerts in Slack.",
-      "Built an investigator agent, similar to Vora Probe, that handles part of each infrastructure investigation and tells the team what is happening on the network and how to fix it.",
+      "Owned production reliability: deployment automation, traffic routing, node connectivity, RPC availability and troubleshooting. Was on call for production.",
+      "Built the alerting and on-call pipeline, which routes alerts from Alertmanager into Datadog Teams and On-Call and posts them to Slack.",
+      "Built an investigator agent, similar to Vora Probe, that handles part of each infrastructure investigation. It tells the team what is happening on the network and how to fix it.",
       // Bare metal and the log streaming (in progress, part of the agent): from Iulian (2026-09-28).
-      "Building log streaming from the bare-metal nodes to a self-hosted Loki on AWS, over TLS through an ALB endpoint, so the agent can read Loki logs and Prometheus metrics through Grafana MCP.",
+      "Building log streaming from the bare-metal nodes to a self-hosted Loki on AWS, over TLS through an ALB endpoint, so the agent can read the logs alongside Prometheus metrics through Grafana MCP.",
     ],
     stack: ["Rust", "Solana / Agave", "Pingora", "Ansible", "bare metal", "Terraform", "PostgreSQL", "Cloudflare", "Prometheus", "Loki", "Grafana", "Alertmanager", "Datadog", "AWS"],
   },
@@ -92,14 +92,14 @@ export const JOBS: Job[] = [
     summary: "Moved high-volume payments from a Python monolith to Go microservices on Kubernetes.",
     highlights: [
       // Terraform bootstrap and RabbitMQ / SNS/SQS: from Iulian (2026-09-30); Helm (2026-10-16).
-      "Migrated a legacy monolith to AWS microservices on Kubernetes and Istio, bootstrapped the AWS infrastructure with Terraform and shipped Helm charts through ArgoCD GitOps with zero-downtime deployments.",
+      "Migrated a legacy monolith to AWS microservices on Kubernetes and Istio, and bootstrapped the AWS infrastructure with Terraform. Shipped Helm charts through ArgoCD GitOps with zero-downtime deployments.",
       // The ported services: from Iulian (2026-10-16).
       "Led the move from Python/Flask to Go and from MongoDB to PostgreSQL. Ported the API, the Lambda runners and the encoding services to Go, served over REST (Echo) and gRPC, and cut response times by 40%.",
       "Built event-driven orchestration for high-volume payment processing with Go workers, AWS Lambda and message queues (RabbitMQ, AWS SNS/SQS). Integrated Checkout.com and Shift4 in a PCI-compliant environment.",
-      "Cut infrastructure costs by 30–40% with Karpenter autoscaling, spot/on-demand workload balancing and observability-driven scaling.",
+      "Cut infrastructure costs by 30–40% with Karpenter autoscaling, workloads balanced across spot and on-demand instances, and scaling based on monitoring data.",
       "Deployed private Hyperledger Besu nodes on Kubernetes.",
       // On call and the alerting pipeline: from Iulian (2026-09-28).
-      "Ran observability on Prometheus, Grafana and Datadog, built the alerting and on-call pipeline (Alertmanager, Datadog Teams and On-Call, Slack) and was on call for production.",
+      "Ran observability on Prometheus, Grafana and Datadog, and was on call for production. Built the alerting and on-call pipeline with Alertmanager, Datadog Teams and On-Call, and Slack.",
     ],
     stack: ["Go", "Kubernetes", "Helm", "Istio", "ArgoCD", "AWS", "Terraform", "PostgreSQL", "RabbitMQ", "gRPC", "Karpenter", "Datadog"],
   },
@@ -142,9 +142,9 @@ export const JOBS: Job[] = [
     place: "Remote",
     summary: "APIs, AWS infrastructure and a React Native app.",
     highlights: [
-      "Developed and maintained REST APIs (PHP) and AWS infrastructure, with GitLab CI/CD pipelines.",
-      "Migrated legacy .NET APIs to a Node.js microservice using GraphQL.",
-      "Led development of the React Native app (v2), with in-app purchases and App Store / Play Store releases.",
+      "Developed and maintained PHP REST APIs and the AWS infrastructure, with GitLab CI/CD pipelines.",
+      "Migrated legacy .NET APIs to a Node.js GraphQL microservice.",
+      "Led development of version 2 of the React Native app, with in-app purchases, and released it on the App Store and Play Store.",
     ],
     stack: ["PHP", "Node.js", "GraphQL", "React Native", "AWS", "GitLab CI/CD"],
   },
@@ -173,7 +173,7 @@ export const JOBS: Job[] = [
     summary: "Led architecture, infrastructure and delivery.",
     highlights: [
       "Ran the development department and led software architecture and full-stack delivery.",
-      "Designed the REST APIs and the database architecture, and ran AWS infrastructure and CI/CD on Bitbucket Pipelines.",
+      "Designed the REST APIs and the database architecture, and ran the AWS infrastructure and the CI/CD on Bitbucket Pipelines.",
       "Built an internal administration platform with Laravel and Vue.js.",
     ],
     stack: ["Laravel", "Vue.js", "AWS", "Bitbucket Pipelines"],
@@ -217,7 +217,7 @@ export const PROJECTS: Project[] = [
     tagline: "A clean room for dirty code.",
     // A learning project: Iulian does not run his own agents in it.
     pitch:
-      "A side project for learning how Linux containers work by building a sandbox runner on namespaces, cgroups and gVisor. It runs AI agents and untrusted code in isolated sandboxes and keeps a record of everything they did.",
+      "A sandbox runner on namespaces, cgroups and gVisor that I'm building to learn how Linux containers work. It runs AI agents and untrusted code in isolated sandboxes and records everything they do.",
     points: [
       "Bubblewrap or gVisor isolation, chosen per sandbox, under one Go runner with no Kubernetes",
       "Default-deny networking: an SNI-inspecting egress gateway and allowlist-only DNS",
@@ -239,7 +239,7 @@ export const PROJECTS: Project[] = [
       "An agent that investigates incidents with read-only access. It gathers telemetry and logs through MCP integrations with Grafana and Loki, links every claim to evidence, and refuses conclusions the evidence cannot support.",
     points: [
       "Picks up Alertmanager webhooks and investigates each incident under rate limits and a deadline",
-      "Turns observations into hypotheses, links them to evidence, and writes an evidence-linked report",
+      "Turns observations into hypotheses, links them to evidence, and writes a report that cites the evidence",
       "Test fixtures enforce a claims policy that rejects causation inferred from timing alone",
       "Compares a baseline LLM against Jev on held-out evaluation suites",
     ],
