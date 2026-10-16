@@ -44,7 +44,7 @@ export function DotField({ reduced, className }: { reduced: boolean; className: 
           const swell = reduced ? 0 : Math.max(0, Math.sin((x + y) / 180 - t / 1600)) ** 6;
           const d = Math.hypot(x - mouse.x, y - mouse.y);
           const near = Math.max(0, 1 - d / 170);
-          const a = 0.1 + swell * 0.18 + near * 0.8;
+          const a = 0.025 + swell * 0.035 + near * 0.3;
           const r = 0.9 + swell * 0.5 + near * 1.6;
           const mix = near * near;
           ctx.fillStyle = `rgba(${240 + (RED[0] - 240) * mix}, ${240 + (RED[1] - 240) * mix}, ${236 + (RED[2] - 236) * mix}, ${a})`;

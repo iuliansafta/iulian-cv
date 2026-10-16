@@ -170,7 +170,6 @@ function Hero({ reduced, email, field }: { reduced: boolean; email: Email; field
           <DotAscii src="/iulian.jpg" alt={`Portrait of ${PROFILE.name}`} reduced={reduced} />
           <figcaption>
             <span>portrait.jpg · halftone</span>
-            <span>hover · tap to decode</span>
           </figcaption>
         </figure>
       </div>

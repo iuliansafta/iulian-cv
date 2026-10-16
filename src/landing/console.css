@@ -9,6 +9,7 @@
   --panel: #0b0b0b;
   --panel-2: #101010;
   --line: #1b1b1a;
+  --grain: #121211;
   --line-2: #2b2b29;
   --ink: #f2f0ea;
   --ink-2: #b8b6ae;
@@ -291,12 +292,16 @@
 .cn-dotascii {
   position: relative;
   aspect-ratio: 1;
-  cursor: none;
 }
 
 .cn-dotascii canvas {
   position: absolute;
   inset: 0;
+  transition: transform 0.6s var(--ease);
+}
+
+.cn-dotascii[data-hover="zoom"]:hover canvas {
+  transform: scale(1.03);
 }
 
 .cn-dotascii img {
@@ -533,7 +538,7 @@
 /* ───────── Sections ───────── */
 
 .cn-sec {
-  padding: 120px 0 20px;
+  padding: 260px 0 20px;
   scroll-margin-top: 50px;
 }
 
@@ -718,7 +723,7 @@
   border: 1px solid var(--line-2);
   border-radius: 18px;
   background:
-    radial-gradient(circle, var(--line) 1px, transparent 1.4px) 0 0 / 14px 14px,
+    radial-gradient(circle, var(--grain) 1px, transparent 1.4px) 0 0 / 14px 14px,
     var(--panel);
   transition: border-color 0.3s;
 }
@@ -1294,7 +1299,7 @@
   }
 
   .cn-sec {
-    padding-top: 90px;
+    padding-top: 200px;
   }
 
   .cn-head {
@@ -1372,6 +1377,12 @@
   }
 
   .cn-span__bar {
+    transform: none;
+  }
+
+  .cn-dotascii canvas,
+  .cn-dotascii[data-hover="zoom"]:hover canvas {
+    transition: none;
     transform: none;
   }
 }
