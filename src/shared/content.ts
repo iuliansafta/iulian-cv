@@ -19,7 +19,7 @@ export const PROFILE = {
   os: "Omarchy, Arch Linux with Hyprland",
   years: YEARS,
   summary:
-    `I've spent ${YEARS} years building backend systems, distributed infrastructure and developer platforms. I write Go and Rust services and blockchain runtimes, and I run the Kubernetes, networking, observability and automation under them.`,
+    `I build backend systems, distributed infrastructure and developer platforms. I write Go and Rust services and blockchain runtimes, and I run the Kubernetes, networking, observability and automation under them.`,
   focus: [
     "Distributed systems",
     "Platform engineering",
