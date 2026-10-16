@@ -19,7 +19,7 @@ Personal landing page for iulian.cloud: a single-page Vite 6 + React 18 site, pl
 
 ## CV
 
-- `yarn cv` builds one PDF per entry in `VARIANTS` (`cv/build.ts`) into `cv/out/`, from `content.ts` via headless Chromium: general, SRE, Blockchain, and Platform (platform/DevOps roles). A variant owns only its title, headline, profile and optional location line; everything else is picked and reordered by index from `content.ts`, never reworded. Only CV-specific copy (those, plus the iulian.cloud entry) lives in `cv/build.ts`.
+- `yarn cv` builds one PDF per entry in `VARIANTS` (`cv/build.ts`) into `cv/out/`, from `content.ts` via headless Chromium. A variant owns only its title, headline, profile and optional location line; everything else is picked and reordered by index from `content.ts`, never reworded. Only CV-specific copy (those, plus the iulian.cloud entry) lives in `cv/build.ts`.
 - The phone number is read from the git-ignored `cv/private.json`; never put it in a tracked file.
 - Cover letters are `cv/letters/*.md` (format in `parseLetter`), one page each, with the header of the CV variant they name. The folder is git-ignored because letters name the companies Iulian applies to; never name a prospective employer in a tracked file (code comments included). Letters make the same factual claims as the CV, nothing more.
 - Keep every variant to two A4 pages, one column (screeners read in order). Check with `pdfinfo` (pages), `pdftotext` (reading order) and a render.
