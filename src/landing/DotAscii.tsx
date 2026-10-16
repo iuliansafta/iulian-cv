@@ -1,16 +1,10 @@
 import { useEffect, useRef, useState } from "react";
-import { RED, fitCanvas } from "../shared/DotField";
+import { fitCanvas } from "../shared/DotField";
 import { usePortraitGrid } from "../shared/hooks";
-
-// Temporary: ?hover=grow|tint|zoom picks the hover effect to compare. Delete
-// the switch once one is chosen.
-type Hover = "grow" | "tint" | "zoom";
-const HOVERS: Hover[] = ["grow", "tint", "zoom"];
-const HOVER: Hover = HOVERS.find((h) => h === new URLSearchParams(location.search).get("hover")) ?? "grow";
 
 const REACH = 90;
 
-// The photo as a halftone. On hover, the dots near the pointer respond.
+// The photo as a halftone. On hover, the dots near the pointer swell a little.
 export function DotAscii({ src, alt, reduced }: { src: string; alt: string; reduced: boolean }) {
   const box = useRef<HTMLDivElement>(null);
   const canvas = useRef<HTMLCanvasElement>(null);
@@ -44,10 +38,10 @@ export function DotAscii({ src, alt, reduced }: { src: string; alt: string; redu
     let running = false;
     let intro = reduced ? 1 : 0;
     const t0 = performance.now();
-    const pointerFx = HOVER !== "zoom";
 
     const draw = () => {
       ctx.clearRect(0, 0, size, size);
+      ctx.fillStyle = "#f2f0ea";
       for (let y = 0; y < n; y++) {
         for (let x = 0; x < n; x++) {
           const l = tone[y * n + x];
@@ -55,11 +49,9 @@ export function DotAscii({ src, alt, reduced }: { src: string; alt: string; redu
           const cx = x * GAP + GAP / 2;
           const cy = y * GAP + GAP / 2;
           const grow = Math.min(1, Math.max(0, intro * 2.2 - (x + y) / (2 * n)));
-          const near = pointerFx && amt > 0 ? amt * Math.max(0, 1 - Math.hypot(cx - mouse.x, cy - mouse.y) / REACH) : 0;
-          const r = (GAP / 2) * Math.sqrt(l) * 0.95 * grow * (HOVER === "grow" ? 1 + near * 0.35 : 1);
+          const near = amt > 0 ? amt * Math.max(0, 1 - Math.hypot(cx - mouse.x, cy - mouse.y) / REACH) : 0;
+          const r = (GAP / 2) * Math.sqrt(l) * 0.95 * grow * (1 + near * 0.35);
           if (r < 0.25) continue;
-          const mix = HOVER === "tint" ? near * near : 0;
-          ctx.fillStyle = `rgb(${242 + (RED[0] - 242) * mix}, ${240 + (RED[1] - 240) * mix}, ${234 + (RED[2] - 234) * mix})`;
           ctx.beginPath();
           ctx.arc(cx, cy, r, 0, Math.PI * 2);
           ctx.fill();
@@ -84,7 +76,7 @@ export function DotAscii({ src, alt, reduced }: { src: string; alt: string; redu
     };
 
     const onMove = (e: PointerEvent) => {
-      if (e.pointerType !== "mouse" || !pointerFx) return;
+      if (e.pointerType !== "mouse") return;
       const b = c.getBoundingClientRect();
       mouse.x = e.clientX - b.left;
       mouse.y = e.clientY - b.top;
@@ -94,7 +86,6 @@ export function DotAscii({ src, alt, reduced }: { src: string; alt: string; redu
       } else kick();
     };
     const onLeave = () => {
-      if (!pointerFx) return;
       mouse.x = mouse.y = -9999;
       if (reduced) {
         amt = 0;
@@ -112,7 +103,7 @@ export function DotAscii({ src, alt, reduced }: { src: string; alt: string; redu
   }, [grid, size, n, GAP, reduced]);
 
   return (
-    <div ref={box} className={`cn-dotascii ${grid ? "" : "is-plain"}`} data-hover={HOVER} role="img" aria-label={alt}>
+    <div ref={box} className={`cn-dotascii ${grid ? "" : "is-plain"}`} role="img" aria-label={alt}>
       <canvas ref={canvas} aria-hidden="true" />
       <img src={src} alt="" draggable={false} />
     </div>

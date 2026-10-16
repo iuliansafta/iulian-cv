@@ -297,11 +297,6 @@
 .cn-dotascii canvas {
   position: absolute;
   inset: 0;
-  transition: transform 0.6s var(--ease);
-}
-
-.cn-dotascii[data-hover="zoom"]:hover canvas {
-  transform: scale(1.03);
 }
 
 .cn-dotascii img {
@@ -1377,12 +1372,6 @@
   }
 
   .cn-span__bar {
-    transform: none;
-  }
-
-  .cn-dotascii canvas,
-  .cn-dotascii[data-hover="zoom"]:hover canvas {
-    transition: none;
     transform: none;
   }
 }
