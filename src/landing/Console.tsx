@@ -229,7 +229,7 @@ const BOOT: Line[] = [
   { kind: "ok", text: "Started go.service rust.service" },
   { kind: "ok", text: "Started opencode.service pi.service" },
   { kind: "ok", text: "Listening on https://iulian.cloud" },
-  { kind: "dim", text: "Start typing — suggestions appear as you go. Press / anywhere to come back here." },
+  { kind: "dim", text: "Start typing to see suggestions. Press / anywhere to come back here." },
 ];
 
 function Shell({ reduced, email, field }: { reduced: boolean; email: Email; field: RefObject<HTMLInputElement> }) {

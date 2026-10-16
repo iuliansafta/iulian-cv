@@ -58,7 +58,7 @@ const VARIANTS: Variant[] = [
     title: PROFILE.role,
     headline: "Go and Rust systems, and the infrastructure they run on.",
     profile:
-      `${PROFILE.years} years shipping backend systems and running the infrastructure under them. Most recently: a customised Solana/Agave runtime operated across Devnet, Testnet and Mainnet, and a high-volume payments platform moved from a Python monolith to Go on Kubernetes — 40% faster responses, 30–40% lower infrastructure cost. I build with coding agents every day (OpenCode, Pi), review every line that ships, and at USBC built an investigator agent that tells the team what is breaking on the network and how to fix it.`,
+      `${PROFILE.years} years shipping backend systems and running the infrastructure under them. At USBC I operate a customised Solana/Agave runtime across Devnet, Testnet and Mainnet, and built an investigator agent that tells the team what is breaking on the network and how to fix it. At Olyn I moved a high-volume payments platform from a Python monolith to Go on Kubernetes. Responses got 40% faster and infrastructure costs fell by 30–40%. I build with coding agents every day (OpenCode, Pi) and review every line that ships.`,
     recent: ["usbc", "olyn"],
     highlights: { usbc: [0, 1, 2, 3, 6, 4, 5, 7] },
     projects: [["vora", [0, 5]], ["probe", [0]], ["site", []]],
@@ -71,7 +71,7 @@ const VARIANTS: Variant[] = [
     title: "Senior SRE / Infrastructure Engineer",
     headline: "Production that stays up, deploys itself and costs less to run.",
     profile:
-      `${PROFILE.years} years building and running production systems. At USBC I own the reliability of a customised Solana/Agave network across Devnet, Testnet and Mainnet: automation, RPC traffic routing and failover, the alerting and on-call pipeline, and an investigator agent that tells the team what is happening and how to fix it. At Olyn I moved a payments platform onto Kubernetes and ArgoCD with zero-downtime deployments, cut infrastructure costs by 30–40%, and built its alerting and on-call pipeline too.`,
+      `${PROFILE.years} years building and running production systems. At USBC I own the reliability of a customised Solana/Agave network across Devnet, Testnet and Mainnet. I built its automation, its RPC traffic routing and failover, its alerting and on-call pipeline, and an investigator agent that tells the team what is happening and how to fix it. At Olyn I moved a payments platform onto Kubernetes and ArgoCD with zero-downtime deployments, cut infrastructure costs by 30–40%, and built its alerting and on-call pipeline too.`,
     recent: ["usbc", "olyn"],
     highlights: { usbc: [4, 5, 6, 7, 3, 1, 0, 2], olyn: [0, 5, 3, 1, 2, 4] },
     projects: [["probe", [0]], ["vora", [0, 4]]],
@@ -84,14 +84,14 @@ const VARIANTS: Variant[] = [
     title: "Senior Blockchain Infrastructure Engineer",
     headline: "Solana validators, RPC and indexers, built and run in production.",
     profile:
-      `${PROFILE.years} years in backend and infrastructure engineering. At USBC I build and operate a customised Solana/Agave runtime across Devnet, Testnet and Mainnet: Ansible-automated validator and RPC provisioning, Geyser indexers that persist on-chain data to PostgreSQL, a Pingora-based RPC gateway with geo-distributed load balancing and failover, and an investigator agent that reports what is happening on the network. Before that: private Hyperledger Besu nodes on Kubernetes at Olyn, and Solana smart contracts in Rust at Bugsy World. I build with coding agents every day (OpenCode, Pi) and review every line that ships.`,
+      `${PROFILE.years} years in backend and infrastructure engineering. At USBC I build and operate a customised Solana/Agave runtime across Devnet, Testnet and Mainnet. I automated validator and RPC provisioning with Ansible and built a Pingora RPC gateway with geo-distributed load balancing and failover. The Geyser indexers I built write on-chain data to PostgreSQL, and the investigator agent reports what is happening on the network. Before that, I deployed private Hyperledger Besu nodes on Kubernetes at Olyn and wrote Solana smart contracts in Rust at Bugsy World. I build with coding agents every day (OpenCode, Pi) and review every line that ships.`,
     recent: ["usbc", "olyn", "bugsy"],
     highlights: { usbc: [0, 1, 3, 2, 6, 4, 5, 7], olyn: [4, 0, 1, 2, 3, 5], bugsy: [1, 0, 2] },
     projects: [["vora", [0, 1]], ["probe", [0]]],
     stats: [2, 0, 3, 4],
     stack: ["Distributed Systems", "Systems & Backend", "Cloud & Platform", "Observability & Data", "AI / Agent Tooling", "Also"],
   },
-  // Platform / DevOps roles: the SRE variant in a platform team's words —
+  // Platform / DevOps roles: the SRE variant in a platform team's words:
   // production, test and dev environments, monitoring and alerting, on-call,
   // cost-effective infrastructure, Linux.
   {
@@ -101,15 +101,31 @@ const VARIANTS: Variant[] = [
     location: `${PROFILE.location} · Geneva area`,
     headline: "Keep production up, keep it lean, automate the rest.",
     profile:
-      `${PROFILE.years} years building production infrastructure. At USBC I run a customised Solana/Agave network across development, test and production environments (Devnet, Testnet, Mainnet): Ansible automation, RPC load balancing with health checks and failover, monitoring and alerting from Alertmanager to Datadog and Slack, on-call support, and an investigator agent that tells the team what is happening and how to fix it. At Olyn I moved a PCI-compliant payments platform onto AWS, Kubernetes and ArgoCD with zero-downtime deployments, cut infrastructure costs by 30–40%, and built the same alerting and on-call pipeline. On the side I learn Linux containers by building Vora.`,
+      `${PROFILE.years} years building production infrastructure. At USBC I run a customised Solana/Agave network across its development, test and production environments: Devnet, Testnet and Mainnet. I built its Ansible automation, its RPC load balancing with health checks and failover, its monitoring and alerting from Alertmanager to Datadog and Slack, and an investigator agent that tells the team what is happening and how to fix it. I also provide on-call support. At Olyn I moved a PCI-compliant payments platform onto AWS, Kubernetes and ArgoCD with zero-downtime deployments, cut infrastructure costs by 30–40%, and built the same alerting and on-call pipeline. On the side, I'm learning Linux containers by building Vora.`,
     recent: ["usbc", "olyn"],
     highlights: { usbc: [4, 5, 6, 7, 3, 1, 0, 2], olyn: [0, 5, 3, 1, 2, 4] },
     projects: [["probe", [0]], ["vora", [0, 1]]],
     stats: [0, 4, 2, 3],
     stack: ["Cloud & Platform", "Observability & Data", "Systems & Backend", "Distributed Systems", "AI / Agent Tooling", "Also"],
   },
+  // Cloud / platform roles in regulated finance: the platform variant, with a
+  // profile that opens on the bank behind USBC, then Terraform, Helm and GitOps, then Go.
+  {
+    id: "cloud",
+    file: "Iulian_Safta_CV_Cloud_Platform.pdf",
+    title: "Cloud / Platform Engineer",
+    location: `${PROFILE.location} · Geneva area`,
+    headline: "Keep production up, keep it lean, automate the rest.",
+    profile:
+      `${PROFILE.years} years building production infrastructure. At USBC I run a customised Solana/Agave runtime across Devnet, Testnet and Mainnet. It is the ledger behind a bank-backed digital dollar held as tokenized deposits at Vast Bank, N.A. I automate it with Ansible and Terraform Cloud, and built its RPC load balancing with health checks and failover, its alerting and on-call pipeline, and an investigator agent that tells the team what is happening and how to fix it. At Olyn I moved a PCI-compliant payments platform from a Python monolith to Go microservices on AWS and Kubernetes, deployed with Terraform, Helm and ArgoCD GitOps, without downtime. Responses got 40% faster and infrastructure costs fell by 30–40%. I build with coding agents every day (OpenCode, Pi) and review every line that ships.`,
+    recent: ["usbc", "olyn"],
+    highlights: { usbc: [0, 1, 4, 5, 6, 7, 3, 2], olyn: [0, 1, 5, 3, 2, 4] },
+    projects: [["probe", [0]], ["vora", [0, 1]]],
+    stats: [0, 4, 3, 2],
+    stack: ["Cloud & Platform", "Observability & Data", "Systems & Backend", "AI / Agent Tooling", "Distributed Systems", "Also"],
+  },
   // Observability SRE roles: logs, metrics, traces and alerts, and AI tooling
-  // for detection and response — the alerting pipelines and the investigator agent lead.
+  // for detection and response. The alerting pipelines and the investigator agent lead.
   {
     id: "observability",
     file: "Iulian_Safta_CV_Observability.pdf",
@@ -117,7 +133,7 @@ const VARIANTS: Variant[] = [
     location: `${PROFILE.location} · Geneva area`,
     headline: "Logs, metrics and alerts engineers rely on, and agents that read them.",
     profile:
-      `${PROFILE.years} years building and running production systems. At USBC I run a customised Solana/Agave network on hosted bare metal across Devnet, Testnet and Mainnet. I built its alerting and on-call pipeline (Alertmanager into Datadog Teams and On-Call, alerts in Slack) and an investigator agent that tells the team what is happening and how to fix it, and I am now streaming logs from the bare-metal nodes into Loki on AWS, which the agent reads alongside Prometheus metrics through Grafana MCP. At Olyn I ran observability on Prometheus, Grafana and Datadog for a Kubernetes and ArgoCD payments platform, built its alerting and on-call pipeline too, and cut infrastructure costs by 30–40%.`,
+      `${PROFILE.years} years building and running production systems. At USBC I run a customised Solana/Agave network on hosted bare metal across Devnet, Testnet and Mainnet. I built its alerting and on-call pipeline, which routes alerts from Alertmanager into Datadog Teams and On-Call and posts them to Slack. I also built an investigator agent that tells the team what is happening and how to fix it. I am now streaming logs from the bare-metal nodes into Loki on AWS, so the agent can read them alongside Prometheus metrics through Grafana MCP. At Olyn I ran observability on Prometheus, Grafana and Datadog for a Kubernetes and ArgoCD payments platform, built its alerting and on-call pipeline too, and cut infrastructure costs by 30–40%.`,
     recent: ["usbc", "olyn"],
     highlights: { usbc: [5, 6, 7, 4, 0, 3, 1, 2], olyn: [5, 0, 3, 1, 2, 4] },
     projects: [["probe", [0, 1]], ["vora", [4, 0]]],
@@ -223,7 +239,7 @@ function render(v: Variant): string {
   });
   const stack = v.stack.map((g) => STACK.find((s) => s.group === g) ?? fail(`no stack group ${g}`));
 
-  return page(`${PROFILE.name} — ${v.title}`, `${v.title}. ${v.headline}`, `${top(v, true)}
+  return page(`${PROFILE.name} · ${v.title}`, `${v.title}. ${v.headline}`, `${top(v, true)}
 
 <section>
   <h2>Profile</h2>
@@ -276,7 +292,7 @@ function renderLetter(l: Letter): string {
   const v = VARIANTS.find((v) => v.id === l.cv) ?? fail(`no variant ${l.cv}`);
   const date = l.date ?? new Date().toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric" });
   const paragraphs = l.body.trim().split(/\n\s*\n/).map((p) => `<p>${prose(p.replace(/\s*\n\s*/g, " "))}</p>`);
-  return page(`${PROFILE.name} — Cover letter`, l.subject, `${top(v, false)}
+  return page(`${PROFILE.name} · Cover letter`, l.subject, `${top(v, false)}
 <main class="letter">
   <div class="letter-meta">
     <p class="to">${l.to.split(" | ").map(esc).join("<br />")}</p>
@@ -295,7 +311,9 @@ function print(file: string, html: string) {
   execFileSync(
     "chromium",
     ["--headless", "--disable-gpu", "--no-pdf-header-footer", `--print-to-pdf=${pdfPath}`, `file://${htmlPath}`],
-    { stdio: ["ignore", "ignore", "inherit"] },
+    // Chromium's stderr is noise on success (a missing accessibility bus, byte
+    // counts); on failure execFileSync throws with it in the message.
+    { stdio: ["ignore", "ignore", "pipe"] },
   );
   console.log(`→ ${pdfPath}`);
 }
