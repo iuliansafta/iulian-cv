@@ -291,7 +291,6 @@
 .cn-dotascii {
   position: relative;
   aspect-ratio: 1;
-  cursor: none;
 }
 
 .cn-dotascii canvas {
@@ -533,7 +532,7 @@
 /* ───────── Sections ───────── */
 
 .cn-sec {
-  padding: 120px 0 20px;
+  padding: 260px 0 20px;
   scroll-margin-top: 50px;
 }
 
@@ -558,6 +557,7 @@
 
 .cn-h2 {
   display: grid;
+  color: var(--ink-2);
   font-family: var(--dot);
   font-size: clamp(44px, 7.2vw, 108px);
   font-weight: 900;
@@ -752,6 +752,7 @@
 
 .cn-proj__name {
   margin-top: 24px;
+  color: var(--ink-2);
   font-family: var(--dot);
   font-size: clamp(52px, 7vw, 100px);
   font-weight: 900;
@@ -1063,6 +1064,7 @@
   flex-wrap: wrap;
   gap: 4px 28px;
   margin-bottom: 40px;
+  color: var(--ink-2);
   font-family: var(--dot);
   font-size: clamp(38px, 5.4vw, 80px);
   font-weight: 900;
@@ -1162,6 +1164,7 @@
 }
 
 .cn-giant {
+  color: var(--ink-2);
   font-family: var(--dot);
   font-size: clamp(88px, 18vw, 280px);
   font-weight: 900;
@@ -1294,7 +1297,7 @@
   }
 
   .cn-sec {
-    padding-top: 90px;
+    padding-top: 200px;
   }
 
   .cn-head {
