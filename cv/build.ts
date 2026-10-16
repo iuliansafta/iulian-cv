@@ -311,7 +311,9 @@ function print(file: string, html: string) {
   execFileSync(
     "chromium",
     ["--headless", "--disable-gpu", "--no-pdf-header-footer", `--print-to-pdf=${pdfPath}`, `file://${htmlPath}`],
-    { stdio: ["ignore", "ignore", "inherit"] },
+    // Chromium's stderr is noise on success (a missing accessibility bus, byte
+    // counts); on failure execFileSync throws with it in the message.
+    { stdio: ["ignore", "ignore", "pipe"] },
   );
   console.log(`→ ${pdfPath}`);
 }
