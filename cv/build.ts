@@ -108,6 +108,22 @@ const VARIANTS: Variant[] = [
     stats: [0, 4, 2, 3],
     stack: ["Cloud & Platform", "Observability & Data", "Systems & Backend", "Distributed Systems", "AI / Agent Tooling", "Also"],
   },
+  // Cloud / platform roles in regulated finance: the platform variant, with a
+  // profile that opens on the bank behind USBC, then Terraform, Helm and GitOps, then Go.
+  {
+    id: "cloud",
+    file: "Iulian_Safta_CV_Cloud_Platform.pdf",
+    title: "Cloud / Platform Engineer",
+    location: `${PROFILE.location} · Geneva area`,
+    headline: "Keep production up, keep it lean, automate the rest.",
+    profile:
+      `${PROFILE.years} years building production infrastructure. At USBC I run a customised Solana/Agave runtime across Devnet, Testnet and Mainnet, the ledger behind a bank-backed digital dollar held as tokenized deposits at Vast Bank, N.A. I automate it with Ansible and Terraform Cloud, and built its RPC load balancing with health checks and failover, its alerting and on-call pipeline, and an investigator agent that tells the team what is happening and how to fix it. At Olyn I moved a PCI-compliant payments platform from a Python monolith to Go microservices on AWS and Kubernetes, deployed with Terraform, Helm and ArgoCD GitOps, without downtime. Responses got 40% faster and infrastructure costs fell by 30–40%. I build with coding agents every day (OpenCode, Pi) and review every line that ships.`,
+    recent: ["usbc", "olyn"],
+    highlights: { usbc: [0, 1, 4, 5, 6, 7, 3, 2], olyn: [0, 1, 5, 3, 2, 4] },
+    projects: [["probe", [0]], ["vora", [0, 1]]],
+    stats: [0, 4, 3, 2],
+    stack: ["Cloud & Platform", "Observability & Data", "Systems & Backend", "AI / Agent Tooling", "Distributed Systems", "Also"],
+  },
   // Observability SRE roles: logs, metrics, traces and alerts, and AI tooling
   // for detection and response — the alerting pipelines and the investigator agent lead.
   {

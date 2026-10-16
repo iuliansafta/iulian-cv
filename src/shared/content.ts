@@ -16,10 +16,10 @@ export const PROFILE = {
   coords: "46.37°N 06.48°E",
   timeZone: "Europe/Paris",
   // From Iulian (2026-09-27): the machine this site was built on.
-  os: "Omarchy — Arch Linux + Hyprland",
+  os: "Omarchy, Arch Linux with Hyprland",
   years: YEARS,
   summary:
-    `Senior software and infrastructure engineer with ${YEARS} years of building backend systems, distributed infrastructure and developer platforms. I work across the application/infrastructure boundary — from Go and Rust services and blockchain runtimes to Kubernetes, networking, observability and automation.`,
+    `Senior software and infrastructure engineer with ${YEARS} years of building backend systems, distributed infrastructure and developer platforms. I write Go and Rust services and blockchain runtimes, and I run the Kubernetes, networking, observability and automation under them.`,
   focus: [
     "Distributed systems",
     "Platform engineering",
@@ -64,19 +64,20 @@ export const JOBS: Job[] = [
     end: null,
     place: "Remote",
     url: "https://usbc.xyz/",
-    summary: "Core blockchain infrastructure on a customised Solana/Agave runtime.",
+    // Vast Bank: from Iulian (2026-10-16); wording follows usbc.xyz/i/about.
+    summary: "Core blockchain infrastructure on a customised Solana/Agave runtime, for a bank-backed digital dollar held as tokenized deposits at Vast Bank, N.A.",
     highlights: [
-      "Built and deployed a customised Solana/Agave runtime and operated the core blockchain infrastructure on hosted bare-metal machines across Devnet, Testnet and Mainnet.",
+      "Built and deployed a customised Solana/Agave runtime and operated the core blockchain infrastructure on hosted bare-metal machines across Devnet, Testnet and Mainnet. The runtime is the ledger for USBC tokenized deposits at Vast Bank, N.A.",
       // Terraform Cloud for the cloud infrastructure: from Iulian (2026-09-30).
-      "Designed Ansible automation for validator, RPC and supporting-node provisioning, configuration and repeatable network deployment, with the cloud infrastructure deployed through Terraform Cloud.",
+      "Designed the Ansible automation that provisions and configures validator, RPC and supporting nodes and makes network deployments repeatable. Deployed the cloud infrastructure through Terraform Cloud.",
       "Developed Geyser-based indexers that consume blockchain events, decode on-chain data and persist transactions and events to PostgreSQL.",
-      "Built a high-performance RPC gateway on Cloudflare's Pingora, with geo-distributed RPC load balancing, health checks and failover.",
+      "Built an RPC gateway on Cloudflare's Pingora with geo-distributed load balancing, health checks and failover.",
       // On call, the alerting pipeline and the investigator agent: from Iulian (2026-09-28).
-      "Owned reliability end to end, on call for production: deployment automation, traffic routing, node connectivity, RPC availability and production troubleshooting.",
-      "Built the alerting and on-call pipeline: Alertmanager routing into Datadog Teams and On-Call, with alerts in Slack.",
+      "Owned production reliability and was on call for it: deployment automation, traffic routing, node connectivity, RPC availability and troubleshooting.",
+      "Built the alerting and on-call pipeline, with Alertmanager routing into Datadog Teams and On-Call and alerts in Slack.",
       "Built an investigator agent, similar to Vora Probe, that handles part of each infrastructure investigation and tells the team what is happening on the network and how to fix it.",
       // Bare metal and the log streaming (in progress, part of the agent): from Iulian (2026-09-28).
-      "Building log streaming from the bare-metal nodes into an in-house Loki on AWS, over TLS through an ALB endpoint, so the agent reads Loki logs and Prometheus metrics through Grafana MCP.",
+      "Building log streaming from the bare-metal nodes to a self-hosted Loki on AWS, over TLS through an ALB endpoint, so the agent can read Loki logs and Prometheus metrics through Grafana MCP.",
     ],
     stack: ["Rust", "Solana / Agave", "Pingora", "Ansible", "bare metal", "Terraform", "PostgreSQL", "Cloudflare", "Prometheus", "Loki", "Grafana", "Alertmanager", "Datadog", "AWS"],
   },
@@ -88,18 +89,19 @@ export const JOBS: Job[] = [
     end: "2025-12",
     place: "Remote",
     url: "https://olyn.com/",
-    summary: "From a Python monolith to Go microservices on Kubernetes, for high-volume payments.",
+    summary: "Moved high-volume payments from a Python monolith to Go microservices on Kubernetes.",
     highlights: [
-      // Terraform bootstrap and RabbitMQ / SNS/SQS: from Iulian (2026-09-30).
-      "Migrated a legacy monolith to AWS microservices on Kubernetes and Istio, bootstrapped the AWS infrastructure with Terraform and shipped through ArgoCD GitOps with zero-downtime deployments.",
-      "Led the move from Python/Flask to Go and from MongoDB to PostgreSQL, over REST (Echo) and gRPC — response times down 40%.",
-      "Built event-driven orchestration with Go workers, AWS Lambda and message queues (RabbitMQ, AWS SNS/SQS) for high-volume payment processing, integrating Checkout.com and Shift4 in a PCI-compliant environment.",
+      // Terraform bootstrap and RabbitMQ / SNS/SQS: from Iulian (2026-09-30); Helm (2026-10-16).
+      "Migrated a legacy monolith to AWS microservices on Kubernetes and Istio, bootstrapped the AWS infrastructure with Terraform and shipped Helm charts through ArgoCD GitOps with zero-downtime deployments.",
+      // The ported services: from Iulian (2026-10-16).
+      "Led the move from Python/Flask to Go and from MongoDB to PostgreSQL. Ported the API, the Lambda runners and the encoding services to Go, served over REST (Echo) and gRPC, and cut response times by 40%.",
+      "Built event-driven orchestration for high-volume payment processing with Go workers, AWS Lambda and message queues (RabbitMQ, AWS SNS/SQS). Integrated Checkout.com and Shift4 in a PCI-compliant environment.",
       "Cut infrastructure costs by 30–40% with Karpenter autoscaling, spot/on-demand workload balancing and observability-driven scaling.",
       "Deployed private Hyperledger Besu nodes on Kubernetes.",
       // On call and the alerting pipeline: from Iulian (2026-09-28).
       "Ran observability on Prometheus, Grafana and Datadog, built the alerting and on-call pipeline (Alertmanager, Datadog Teams and On-Call, Slack) and was on call for production.",
     ],
-    stack: ["Go", "Kubernetes", "Istio", "ArgoCD", "AWS", "Terraform", "PostgreSQL", "RabbitMQ", "gRPC", "Karpenter", "Datadog"],
+    stack: ["Go", "Kubernetes", "Helm", "Istio", "ArgoCD", "AWS", "Terraform", "PostgreSQL", "RabbitMQ", "gRPC", "Karpenter", "Datadog"],
   },
   {
     id: "eaudeweb",
@@ -123,7 +125,7 @@ export const JOBS: Job[] = [
     start: "2022-02",
     end: "2023-03",
     place: "Remote",
-    summary: "An NFT platform and Solana smart contracts, end to end.",
+    summary: "An NFT platform and its Solana smart contracts.",
     highlights: [
       "Built an NFT generation and management platform with Rust, Node.js, MongoDB and TypeScript.",
       "Developed Solana smart contracts in Rust for the $MXO token ecosystem, and a web marketplace with wallet login and NFT trading.",
@@ -157,7 +159,7 @@ export const JOBS: Job[] = [
     highlights: [
       "Delivered client projects across Laravel, Symfony, React, Vue.js, MySQL and PostgreSQL.",
       "Automated server configuration and CI/CD with Bash, Docker and Bitbucket Pipelines.",
-      "Mentored and guided junior developers.",
+      "Mentored junior developers.",
     ],
     stack: ["Laravel", "Symfony", "React", "Vue.js", "PostgreSQL", "Docker"],
   },
@@ -170,8 +172,8 @@ export const JOBS: Job[] = [
     place: "Bucharest, Romania",
     summary: "Led architecture, infrastructure and delivery.",
     highlights: [
-      "Aligned the development department with the company's objectives; led software architecture and full-stack delivery.",
-      "Designed REST APIs and the database architecture; ran AWS infrastructure and CI/CD on Bitbucket Pipelines.",
+      "Ran the development department and led software architecture and full-stack delivery.",
+      "Designed the REST APIs and the database architecture, and ran AWS infrastructure and CI/CD on Bitbucket Pipelines.",
       "Built an internal administration platform with Laravel and Vue.js.",
     ],
     stack: ["Laravel", "Vue.js", "AWS", "Bitbucket Pipelines"],
@@ -185,7 +187,7 @@ export const JOBS: Job[] = [
     place: "Bucharest, Romania",
     summary: "Features, reviews and mentoring on a product team.",
     highlights: [
-      "Mentored a team of two junior developers and a tester; owned the architecture overview and code reviews.",
+      "Mentored two junior developers and a tester, and owned the architecture overview and code reviews.",
       "Shipped features with PHP/Laravel, Node.js/Express, React and Docker, and supported client builds and rollouts.",
     ],
     stack: ["PHP", "Laravel", "Node.js", "React", "Docker"],
@@ -215,12 +217,12 @@ export const PROJECTS: Project[] = [
     tagline: "A clean room for dirty code.",
     // A learning project: Iulian does not run his own agents in it.
     pitch:
-      "A side project for learning Linux containers from the inside — namespaces, cgroups, gVisor — built around one idea: run AI agents and untrusted code in isolated sandboxes, and keep a record of everything they did.",
+      "A side project for learning how Linux containers work by building a sandbox runner on namespaces, cgroups and gVisor. It runs AI agents and untrusted code in isolated sandboxes and keeps a record of everything they did.",
     points: [
-      "Bubblewrap or gVisor isolation, chosen per sandbox; one Go runner, no Kubernetes in the path",
+      "Bubblewrap or gVisor isolation, chosen per sandbox, under one Go runner with no Kubernetes",
       "Default-deny networking: an SNI-inspecting egress gateway and allowlist-only DNS",
       "Brokered credentials that never enter the sandbox",
-      "Live snapshots and forks — the fan-out primitive for parallel agents",
+      "Live snapshots and forks, so parallel agents can start from the same state",
       "An audit trail of every exec and network decision, with Prometheus and OpenTelemetry",
       "TypeScript and Python SDKs, and an MCP server so coding agents can drive sandboxes",
     ],
@@ -234,11 +236,11 @@ export const PROJECTS: Project[] = [
     status: "in development",
     tagline: "Find the cause. Or say you can't.",
     pitch:
-      "An agent that investigates incidents read-only: it gathers telemetry and logs through MCP integrations with Grafana and Loki, links every claim to evidence, and refuses conclusions the evidence cannot support.",
+      "An agent that investigates incidents with read-only access. It gathers telemetry and logs through MCP integrations with Grafana and Loki, links every claim to evidence, and refuses conclusions the evidence cannot support.",
     points: [
       "Picks up Alertmanager webhooks and investigates each incident under rate limits and a deadline",
-      "Observations → hypotheses → evidence relations → an evidence-linked report",
-      "A claims policy pinned by fixtures: proximity is not causation",
+      "Turns observations into hypotheses, links them to evidence, and writes an evidence-linked report",
+      "Test fixtures enforce a claims policy that rejects causation inferred from timing alone",
       "Compares a baseline LLM against Jev on held-out evaluation suites",
     ],
     stack: ["Go", "MCP", "Grafana", "Loki", "Prometheus", "Alertmanager"],
@@ -247,7 +249,7 @@ export const PROJECTS: Project[] = [
 
 export const AI = {
   body:
-    "Agents sit in my toolchain next to the compiler and the debugger. I use them to build and ship faster — OpenCode and Pi as harnesses, Claude now and then — and I review every line before it ships. Speed is the agent's job; keeping slop out of the codebase is mine.",
+    "I use coding agents every day, next to the compiler and the debugger, to build and ship faster. OpenCode and Pi are my harnesses, and I use Claude now and then. I review every line before it ships, so slop stays out of the codebase.",
   // From Iulian directly (2026-09-27): OpenCode + Pi as harnesses, Claude sometimes.
   tools: [
     { name: "OpenCode", note: "harness · daily driver" },
@@ -265,8 +267,8 @@ export const AI_SESSION: { k: "run" | "ok" | "no"; who: string; what: string; ms
   { k: "run", who: "opencode", what: "plan", msg: "break the task into small diffs", step: 1 },
   { k: "run", who: "pi", what: "edit", msg: "apply the first diff", step: 2 },
   { k: "run", who: "agent", what: "exec", msg: "go test ./...", step: 3 },
-  { k: "no", who: "tests", what: "fail", msg: "1 failing — back to the agent", step: 3 },
-  { k: "ok", who: "tests", what: "pass", msg: "ok — the diff holds", step: 3 },
+  { k: "no", who: "tests", what: "fail", msg: "1 failing, back to the agent", step: 3 },
+  { k: "ok", who: "tests", what: "pass", msg: "ok, 0 failing", step: 3 },
   { k: "run", who: "claude", what: "review", msg: "second opinion, now and then", step: 4 },
   { k: "run", who: "human", what: "review", msg: "read every line that ships", step: 4 },
   { k: "ok", who: "main", what: "ship", msg: "merged", step: 5 },
@@ -282,7 +284,7 @@ export const CODE_LANGS = ["Go", "Rust", "Python", "TypeScript", "PHP", "Solidit
 
 export const STACK: { group: string; items: string[] }[] = [
   { group: "Systems & Backend", items: ["Go", "Rust", "Python", "TypeScript", "Node.js", "gRPC", "REST", "event-driven systems", "RabbitMQ", "AWS SNS/SQS"] },
-  { group: "Cloud & Platform", items: ["AWS", "bare metal", "Kubernetes", "Istio", "ArgoCD", "Docker", "Terraform", "Ansible", "Karpenter", "GitHub Actions", "GitLab CI/CD"] },
+  { group: "Cloud & Platform", items: ["AWS", "bare metal", "Kubernetes", "Helm", "Istio", "ArgoCD", "Docker", "Terraform", "Ansible", "Karpenter", "GitHub Actions", "GitLab CI/CD"] },
   { group: "Distributed Systems", items: ["Solana / Agave", "Hyperledger Besu", "RPC infrastructure", "Pingora", "load balancing", "service mesh"] },
   { group: "Observability & Data", items: ["Prometheus", "Loki", "Grafana", "Datadog", "Alertmanager", "Datadog On-Call", "OpenTelemetry", "PostgreSQL", "MongoDB", "MySQL", "Redis", "Elasticsearch"] },
   { group: "AI / Agent Tooling", items: ["OpenCode", "Pi", "Claude", "MCP", "investigator agents"] },
