@@ -1,9 +1,10 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react-swc';
 import path from 'path';
+import { agentReadable } from './seo/plugin.ts';
 
 export default defineConfig({
-  plugins: [react()],
+  plugins: [react(), agentReadable()],
   resolve: {
     alias: {
       '@': path.resolve(__dirname, './src'),

@@ -67,5 +67,6 @@ Kind regards,
 | `src/landing/` | The page: sections, shell, portrait and styles. |
 | `src/shared/content.ts` | Every fact on the page. Each one traces to the CVs or the vora repos. |
 | `src/shared/` | Hooks, date helpers, fonts and the dot-field canvas. |
-| `public/` | The favicon and the portrait. |
+| `public/` | The favicon, the portrait, `robots.txt` and `sitemap.xml`. |
+| `seo/plugin.ts` | Builds the copies for crawlers and AI agents from `content.ts`: a static profile inside `#root` that React replaces on mount, JSON-LD, `llms.txt` and `index.md`. |
 | `cv/` | The PDF CVs and cover letters. `build.ts` renders HTML and prints it to PDF with Chromium. `cv.css` styles the PDFs, and `fonts/` holds static fonts. |
