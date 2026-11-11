@@ -5,7 +5,7 @@ Personal landing page for iulian.cloud: a single-page Vite 6 + React 18 site, pl
 ## Commands
 
 - Package manager is **yarn classic** (`yarn.lock`). If `yarn` resolves to Berry, use `npx yarn@1 …`; don't create `.yarnrc.yml` or a `package-lock.json`.
-- `yarn dev` serves on port 3000. `yarn build` writes to `build/` (not `dist/`); `vercel.json` tells Vercel.
+- `yarn dev` serves on port 3100. `yarn build` writes to `build/` (not `dist/`); `vercel.json` tells Vercel.
 - There is no test suite, linter or `tsconfig`; SWC does not type-check. Verify with `yarn build` plus a look in a browser at desktop and ~390px width.
 
 ## Content rules

@@ -20,7 +20,7 @@ instead.
 
 ```bash
 yarn install
-yarn dev        # http://localhost:3000
+yarn dev        # http://localhost:3100
 yarn build      # static site in build/
 ```
 
