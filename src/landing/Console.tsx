@@ -208,6 +208,8 @@ const CMDS = [
   { name: "agents", desc: "how I work with AI" },
   { name: "vora", desc: "side project: linux containers" },
   { name: "probe", desc: "side project: investigator agent" },
+  { name: "arc", desc: "side project: running model-written code" },
+  { name: "lab", desc: "side project: one-GPU model serving" },
   { name: "work", desc: "career, newest first" },
   { name: "stack", desc: "languages and tools" },
   { name: "locale", desc: "spoken languages" },
@@ -297,7 +299,9 @@ function Shell({ reduced, email, field }: { reduced: boolean; email: Email; fiel
       case "agents":
         return out(<b>{AI_LINES.headline}</b>, AI.body);
       case "vora":
-      case "probe": {
+      case "probe":
+      case "arc":
+      case "lab": {
         const p = PROJECTS.find((x) => x.id === head)!;
         return out(
           <span>

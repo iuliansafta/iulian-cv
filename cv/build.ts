@@ -140,6 +140,39 @@ const VARIANTS: Variant[] = [
     stats: [0, 4, 2, 3],
     stack: ["Observability & Data", "Cloud & Platform", "Systems & Backend", "AI / Agent Tooling", "Distributed Systems", "Also"],
   },
+  // Senior engineer roles on an internal AI-agent platform: the profile opens on
+  // the investigator agent and Vora Probe. The projects are Probe, then the
+  // solver that runs model-written code in Vora, then Vora's networking,
+  // credentials and audit trail. Earlier jobs keep one bullet each to make room.
+  {
+    id: "ai-platform",
+    file: "Iulian_Safta_CV_AI_Platform.pdf",
+    title: "Senior Software Engineer · AI Platform",
+    headline: "Backend and infrastructure engineer who builds agents and owns what ships.",
+    profile:
+      `${PROFILE.years} years building backend systems and the infrastructure under them, from full-stack product work to a CTO role. At USBC I built an investigator agent that handles part of each infrastructure investigation and tells the team what is happening and how to fix it. I also run the customised Solana/Agave network it investigates. On the side I build Vora Probe, an agent that investigates incidents read-only and links every claim to evidence, and Vora, where I'm learning how Linux containers work. At Olyn I moved a PCI-compliant payments platform from a Python monolith to Go on Kubernetes, and responses got 40% faster. I build with coding agents every day (OpenCode, Pi) and review every line that ships.`,
+    recent: ["usbc", "olyn"],
+    highlights: { usbc: [6, 7, 0, 1, 3, 4, 5, 2], olyn: [1, 2, 0, 5, 3, 4], eaudeweb: [0], bugsy: [0], clikd: [0], pix: [0], digitaljob: [0], qualitance: [0] },
+    projects: [["probe", [1, 2, 3]], ["arc", [0]], ["vora", [1, 2, 4]]],
+    stats: [0, 1, 3, 4],
+    stack: ["AI / Agent Tooling", "Systems & Backend", "Cloud & Platform", "Observability & Data", "Distributed Systems", "Also"],
+  },
+  // Infrastructure roles on teams that serve and evaluate models: the cloud
+  // variant, with the sandboxed solver and the one-GPU serving lab ahead of the agents.
+  {
+    id: "model-infra",
+    file: "Iulian_Safta_CV_Infrastructure.pdf",
+    title: "Infrastructure / Platform Engineer",
+    location: `${PROFILE.location} · Geneva area`,
+    headline: "Keep production up, keep it lean, automate the rest.",
+    profile:
+      `${PROFILE.years} years building production infrastructure. At USBC I run a customised Solana/Agave runtime on hosted bare metal, the ledger behind a bank-backed digital dollar. I automate it with Ansible and Terraform Cloud, and built its RPC load balancing with health checks and failover. At Olyn I moved a PCI-compliant payments platform from a Python monolith to Go on AWS and Kubernetes, and cut infrastructure costs by 30–40%. On the side I built a pipeline that serves Mistral 7B with vLLM on one rented GPU and runs the programs it writes in gVisor sandboxes, and I published what the serving and the isolation cost. I build with coding agents every day (OpenCode, Pi) and review every line that ships.`,
+    recent: ["usbc", "olyn"],
+    highlights: { usbc: [0, 1, 3, 4, 5, 6, 7], olyn: [0, 1, 5, 3, 2, 4], eaudeweb: [0], bugsy: [0], clikd: [0], pix: [0], digitaljob: [0], qualitance: [0] },
+    projects: [["arc", [0, 1]], ["lab", [0]], ["vora", [0]]],
+    stats: [0, 4, 3, 2],
+    stack: ["Cloud & Platform", "Observability & Data", "Systems & Backend", "AI / Agent Tooling", "Distributed Systems", "Also"],
+  },
 ];
 
 const esc = (s: string) => s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
