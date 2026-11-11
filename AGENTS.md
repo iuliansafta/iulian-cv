@@ -10,11 +10,11 @@ Personal landing page for iulian.cloud: a single-page Vite 6 + React 18 site, pl
 
 ## Content rules
 
-- `src/shared/content.ts` holds every fact. Each must trace to the CVs in the repo root or to `../vora` / `../vora-probe`. Never invent employers, numbers, titles or clients.
+- `src/shared/content.ts` holds every fact. Each must trace to the CVs in the repo root or to `../vora`, `../vora-probe`, `../vora-arc` or `../inference-lab`. A number about vora-arc or inference-lab comes from their results docs. Never invent employers, numbers, titles or clients.
 - Vora and Vora Probe are side projects for learning Linux containers; Iulian does not run his own agents in Vora. His harnesses are OpenCode and Pi, with Claude now and then; he uses them to ship, reviews every line, and keeps slop out (he is not "harness-obsessed"). Don't write copy that says otherwise.
 - Career start is January 2008 (from Iulian; the CVs' "15+" is outdated). The years figure is derived from `CAREER_START`; the meta tags in `index.html` say "since 2008". Never hardcode a year count.
 - The e-mail is joined in the browser only on a visitor's action (`EMAIL_PARTS`, `useEmail`). Don't put the address in HTML, meta tags or `llms.txt`. No phone number anywhere.
-- The vora repos are private; link to vora.sh, not GitHub.
+- `vorash/vora`, `vorash/vora-arc` and `iuliansafta/inference-lab` are public: link their GitHub repos. Vora Probe is private: link vora.sh/probe/.
 - The CV PDFs in the repo root are git-ignored on purpose (phone number, personal address). Never commit them.
 
 - Crawlers and AI agents get the same facts without JavaScript: `seo/plugin.ts` generates the static profile in `#root`, the JSON-LD, `llms.txt` and `index.md` from `content.ts` at build time. Never hand-write those copies; change `content.ts`. The static block hides for browsers that run the app (`.js` class) and React replaces it on mount.

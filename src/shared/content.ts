@@ -1,5 +1,6 @@
 // Every fact on the site comes from this file, and every fact here traces to
-// the two CVs in the repo root or to the ../vora and ../vora-probe READMEs.
+// the two CVs in the repo root, to the ../vora and ../vora-probe READMEs, or to
+// the results docs in ../vora-arc and ../inference-lab.
 // Keep it that way: no invented clients, numbers or titles.
 
 // From Iulian (2026-09-27): he started in January 2008. The CVs say "15+",
@@ -206,14 +207,16 @@ export type Project = {
   stack: string[];
 };
 
-// Both repos are private (github.com/vorash), so the public links go to vora.sh.
+// vora, vora-arc and inference-lab are public on GitHub. Vora Probe is private,
+// so its link goes to vora.sh. CV variants pick projects and points by index:
+// add new ones at the end.
 export const PROJECTS: Project[] = [
   {
     id: "vora",
     name: "Vora",
-    url: "https://vora.sh",
+    url: "https://github.com/vorash/vora",
     kind: "Side project · Linux containers",
-    status: "v0.7 · proof of concept",
+    status: "v0.10 · proof of concept",
     tagline: "A clean room for dirty code.",
     // A learning project: Iulian does not run his own agents in it.
     pitch:
@@ -244,6 +247,44 @@ export const PROJECTS: Project[] = [
       "Compares a baseline LLM against Jev on held-out evaluation suites",
     ],
     stack: ["Go", "MCP", "Grafana", "Loki", "Prometheus", "Alertmanager"],
+  },
+  // Every number: ../vora-arc/docs/experiments-2-3-results.md (the runs of
+  // 2026-11-06) and docs/experiment-1-results.md (the sandbox benchmark).
+  {
+    id: "arc",
+    name: "vora-arc",
+    url: "https://github.com/vorash/vora-arc",
+    kind: "Side project · sandboxed code generation",
+    status: "results logged · 2026-11-06",
+    tagline: "What it costs to run code that a model wrote.",
+    pitch:
+      "A solver for ARC-AGI tasks. A model served by vLLM writes candidate programs, and each one runs in a Vora sandbox. At 64 samples per task, Mistral 7B on one rented NVIDIA L4, chosen for its cost, solved none of the first 100 ARC-AGI-1 evaluation tasks. It solved 7 of 12 hand-picked simple tasks, so the zero comes from the model and its plain prompt.",
+    points: [
+      "11,500 sandbox runs of model-written code across five runs with 0 infrastructure errors, and sandbox time at most 13% of the 100-task run's wall-clock time",
+      "On one 8-core host at concurrency 8, a warm gVisor pool that resets each sandbox between programs ran 44.1 programs per second, 1.8 times as many as a new sandbox per program",
+      "On that host, the reset cost 24% of warm throughput on gVisor and 6% on bubblewrap",
+      "Leak tests in a suite of hostile programs passed on bubblewrap and gVisor, and a control showed that skipping the reset does leak",
+      "35 runs killed at the 256 MiB memory limit and 9 at their time limit, each recorded as a verdict without stopping the run",
+      "Every completion and sandbox result stored in PostgreSQL, so the reports regenerate from the committed dump byte for byte",
+    ],
+    stack: ["Python", "asyncio", "vLLM", "gVisor", "PostgreSQL", "Grafana"],
+  },
+  // Every number: ../inference-lab/README.md and results/README.md (the bf16 run of 2026-11-06).
+  {
+    id: "lab",
+    name: "inference-lab",
+    url: "https://github.com/iuliansafta/inference-lab",
+    kind: "Side project · model serving",
+    status: "first run logged · 2026-11-06",
+    tagline: "Find where one GPU saturates, and why.",
+    pitch:
+      "A one-GPU lab that serves Mistral 7B Instruct v0.3 with vLLM on k3s, monitors it with Prometheus, Grafana and NVIDIA's DCGM exporter, and benchmarks it to find where it saturates and why. Terraform and Ansible build it on one rented NVIDIA L4.",
+    points: [
+      "The KV cache reached 100% at concurrency 64, and output throughput went only from 483 to 490 tokens per second between concurrency 64 and 128",
+      "Each benchmark row pairs the client's latency with the server's KV cache use, queue and preemptions over the same window",
+      "Alert rules for a server that is down, queued requests, a KV cache over 90%, preemptions and GPU temperature",
+    ],
+    stack: ["Terraform", "Ansible", "k3s", "vLLM", "Prometheus", "Grafana", "DCGM"],
   },
 ];
 
