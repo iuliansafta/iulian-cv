@@ -17,6 +17,8 @@ Personal landing page for iulian.cloud: a single-page Vite 6 + React 18 site, pl
 - The vora repos are private; link to vora.sh, not GitHub.
 - The CV PDFs in the repo root are git-ignored on purpose (phone number, personal address). Never commit them.
 
+- Crawlers and AI agents get the same facts without JavaScript: `seo/plugin.ts` generates the static profile in `#root`, the JSON-LD, `llms.txt` and `index.md` from `content.ts` at build time. Never hand-write those copies; change `content.ts`. The static block hides for browsers that run the app (`.js` class) and React replaces it on mount.
+
 ## CV
 
 - `yarn cv` builds one PDF per entry in `VARIANTS` (`cv/build.ts`) into `cv/out/`, from `content.ts` via headless Chromium. A variant owns only its title, headline, profile and optional location line; everything else is picked and reordered by index from `content.ts`, never reworded. Only CV-specific copy (those, plus the iulian.cloud entry) lives in `cv/build.ts`.
